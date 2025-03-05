@@ -13,9 +13,9 @@ typedef struct winding_s{
 //plane
 typedef struct plane_s{
     plane_t * prev, ** next;
-    float points;
-    vec3_t normal;
-    vec3_t plane;
+    vec3_t * points;
+    vec3_t * normal;
+    vec3_t * plane;
 }plane_t;
 
 //face
@@ -45,3 +45,5 @@ typedef struct side_s{
 
 qboolean SelectFace(face_t * f);
 qboolean SelectBrush(brush_t * b);
+
+qboolean g_pBrushPrimitMode;

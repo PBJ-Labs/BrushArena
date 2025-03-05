@@ -5,7 +5,8 @@
 const char * BrushName(brush_t * b);
 brush_t * Alloc_Brush();
 brush_t * Draw_Brush(brush_t * b, vec3_t min, vec3_t max);
-plane_t * BrushMake_Plane(brush_t * b, plane_t * p);
+plane_t * BrushMake_Plane(brush_t * b, plane_t * p, vec3_t * v);
+plane_t * Alloc_Plane();
 face_t * BrushMake_Face(brush_t * b, face_t * f);
 
 brush_t * BrushCreated(qboolean Created);
@@ -39,6 +40,7 @@ brush_t * Setup_BrushScale(brush_t * b);
 qboolean HighlightBrush(brush_t * b);
 qboolean HighlightFace(face_t * f);
 
+void PrintWinding(winding_t * w);
 void PrintPlane(plane_t * p);
 void PrintFace(face_t * f);
 void PrintVector(vec3_t * v);

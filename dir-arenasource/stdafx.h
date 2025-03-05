@@ -5,7 +5,7 @@
 //winding
 typedef struct winding_s{
     winding_t * prev, ** next;
-    int numpoints;
+    int * numpoints[3];
     int maxpoint;
     int windingpoints[8][5];
 }winding_t;
@@ -15,14 +15,14 @@ typedef struct plane_s{
     plane_t * prev, ** next;
     vec3_t * points;
     vec3_t * normal;
-    vec3_t * plane;
+    vec3_t * plane[];
 }plane_t;
 
 //face
 typedef struct face_s{
     face_t * prev, ** next;
-    float points[4];
-    vec3_t face;
+    float *points[4];
+    vec3_t * face;
 }face_t;
 
 //brush
@@ -47,3 +47,5 @@ qboolean SelectFace(face_t * f);
 qboolean SelectBrush(brush_t * b);
 
 qboolean g_pBrushPrimitMode;
+
+qboolean free_brush(brush_t * b);
